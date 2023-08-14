@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
+const Product = require('../models/products')
+
 router.get('/', (req, res, next) => {
     res.status(200).json({
-        message: 'Hnadling Get request to /products'
+        message: 'Hnadling Get request to /product'
     });
 });
 
