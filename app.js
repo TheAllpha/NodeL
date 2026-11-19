@@ -6,16 +6,9 @@ const mongoose = require('mongoose')
 
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
-// mongodb+srv://thealpha:<password>@atlascluster.7jgaehh.mongodb.net/?retryWrites=true&w=majority
-mongoose.connect(
-"mongodb+srv://user2000:"
-+process.env.MONGO_ATLAS_PW+
-"@atlascluster.7jgaehh.mongodb.net/?retryWrites=true&w=majority",
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    }
-).catch(error => console.error("MongoDB connection error:", error));
+// Veritabani baglanti adresi kodda degil, MONGO_URI ortam degiskeninde tutulur
+mongoose.connect(process.env.MONGO_URI)
+    .catch(error => console.error("MongoDB connection error:", error));
 
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({extended: false}))
